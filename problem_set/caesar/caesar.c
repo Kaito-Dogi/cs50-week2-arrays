@@ -1,28 +1,26 @@
 #include <cs50.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 int main(int argc, string argv[])
 {
     // check the number of command line arguments
-    if (argc == 2)
-    {
-        // check if each char is digit
-        for (int i = 0, i_max = strlen(argv[1]); i < i_max; i++)
-        {
-            if (!isdigit(argv[1][i]))
-            {
-                printf("Usage: ./caesar key\n");
-                return 1;
-            }
-        }
-    }
-    else
+    if (argc != 2)
     {
         printf("Usage: ./caesar key\n");
         return 1;
+    }
+
+    // check if each char is digit
+    for (int i = 0, i_max = strlen(argv[1]); i < i_max; i++)
+    {
+        if (!isdigit(argv[1][i]))
+        {
+            printf("Usage: ./caesar key\n");
+            return 1;
+        }
     }
 
     // get key
