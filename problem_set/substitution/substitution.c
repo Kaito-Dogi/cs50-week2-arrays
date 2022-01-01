@@ -49,4 +49,23 @@ int main(int argc, string argv[])
             return 1;
         }
     }
+
+    // get plaintext
+    string plaintext = get_string("plaintext:  ");
+
+    // encrypt plaintext
+    for (int i = 0, i_max = strlen(plaintext); i < i_max; i++)
+    {
+        if (plaintext[i] >= 'a' && plaintext[i] <= 'z')
+        {
+            plaintext[i] = tolower(argv[1][plaintext[i] - 'a']);
+        }
+        else if (plaintext[i] >= 'A' && plaintext[i] <= 'Z')
+        {
+            plaintext[i] = toupper(argv[1][plaintext[i] - 'A']);
+        }
+    }
+
+    // print ciphertext
+    printf("ciphertext: %s\n", plaintext);
 }
